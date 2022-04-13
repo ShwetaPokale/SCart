@@ -1,0 +1,81 @@
+
+
+<section class="cart_section">
+    <!-- <div class="container">
+
+<h2>cart</h2>
+<div *ngIf = "getCartDetails"></div>
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Sub total</th>
+    <th>Remove item </th>
+
+  </tr>
+  <tr *ngFor ='let getCartDetail of getCartDetails'>
+    <td><img src="{{getCartDetail.img}}" alt="P1"></td>
+    <td>₹ {{getCartDetail.amt}}</td>
+    <td> <div class="content">
+        <button type="button" class="btn" (click)="incQnt(getCartDetail.prodID, getCartDetail.qnt)"><i class="bi bi-plus"></i></button>
+        <span>{{getCartDetail.qnt}}</span>
+
+        <button type="button" class="btn" (click)="decQnt(getCartDetail.prodID, getCartDetail.qnt)"><i class="bi bi-dash"></i></button>
+    </div></td>
+    <td>{{getCartDetail.qnt * getCartDetail.amt | number}}</td>
+    <td><button type="button" class="btn" (click)="singleDelete(getCartDetail.prodID)"><i class="bi bi-trash"></i></button>
+    </td>
+  </tr>
+  
+</table>
+    <div class="row">
+            <div class="col-md-6">
+                             <h3>Total- ₹ {{total}}</h3>
+            </div>
+             <div class="col-md-6 text-right">
+                          <button type="button" class="remove_btn" (click)="removeall()"><i class="bi bi-trash"></i>Remove All Item</button>
+            </div>
+          </div>
+
+        </div> -->
+
+        <div class="container">
+
+          <h2>cart</h2>
+          <!-- <div *ngIf = "getCartDetails"></div> -->
+          <table>
+            <tr>
+              <th>Image</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Sub total</th>
+              <th>Remove item </th>
+          
+            </tr>
+            <tr *ngFor ='let obj of list | async'>
+              <td><img src="{{obj.img}}" alt="P1"></td>
+              <td>₹ {{obj.productPrice}}</td>
+              <td> <div class="content">
+                  <button type="button" class="btn" (click)="incQnt(obj.productID, obj.productQuantity)"><i class="bi bi-plus"></i></button>
+                  <span>{{obj.productQuantity}}</span>
+          
+                  <button type="button" class="btn" (click)="decQnt(obj.productID, obj.productQuantity)"><i class="bi bi-dash"></i></button>
+              </div></td>
+              <td>{{obj.productQuantity * obj.productPrice | number}}</td>
+              <td><button type="button" class="btn" (click)="singleDelete(obj.productID)"><i class="bi bi-trash"></i></button>
+              </td>
+            </tr>
+            
+          </table>
+              <div class="row">
+                      <div class="col-md-6">
+                                       <h3>Total- ₹ {{total}}</h3>
+                      </div>
+                       <div class="col-md-6 text-right">
+                                    <button type="button" class="remove_btn" (click)="removeall()"><i class="bi bi-trash"></i>Remove All Item</button>
+                      </div>
+                    </div>
+          
+                  </div>
+      </section>
